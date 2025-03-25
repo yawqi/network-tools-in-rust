@@ -1,5 +1,18 @@
 use clap::Parser;
 
+pub fn setup_tracing() {
+    use tracing_subscriber::fmt::Subscriber;
+    use tracing_subscriber::EnvFilter;
+
+    if std::env::var("RUST_LOG").is_err() {
+        std::env::set_var("RUST_LOG", "info");
+    }
+
+    Subscriber::builder()
+        .with_env_filter(EnvFilter::from_default_env())
+        .init();
+}
+
 #[derive(Parser, Debug)]
 #[command(version, about, long_about)]
 pub struct Args {

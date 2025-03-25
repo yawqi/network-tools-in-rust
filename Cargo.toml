@@ -10,4 +10,4 @@ chrono = "0.4.40"
 clap = { version = "4.5.32", features = ["derive"] }
 tokio = { version = "1.44.1", features = ["full"] }
 tracing = "0.1.41"
-tracing-subscriber = "0.3"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
